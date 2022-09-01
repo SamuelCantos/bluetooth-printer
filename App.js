@@ -16,6 +16,7 @@ import {
   Dimensions,
   ToastAndroid
 } from 'react-native';
+import SamplePrint from "./SamplePrint"
 import { BluetoothEscposPrinter, BluetoothManager, BluetoothTscPrinter } from "react-native-bluetooth-escpos-printer";
 /*  import EscPos from "./escpos";
  import Tsc from "./tsc"; */
@@ -238,7 +239,7 @@ export default class Home extends Component {
                 }} title="Print BarCode"/>
                  <Button onPress={async () => {
                     await BluetoothEscposPrinter.rotate(BluetoothEscposPrinter.ROTATION.OFF);
-                    await  BluetoothEscposPrinter.printText("SE PUDO GABI\r\n", {
+                    await  BluetoothEscposPrinter.printText("Hola mundo\r\n", {
                         encoding: 'GBK',
                         codepage: 0,
                         widthtimes: 0,
@@ -248,7 +249,9 @@ export default class Home extends Component {
                     await  BluetoothEscposPrinter.printText("\r\n\r\n\r\n", {});
                 }} title="Print Rotate"/>
         </View>
+        <SamplePrint/>
       </ScrollView>
+      
     );
   }
 
@@ -282,8 +285,6 @@ export default class Home extends Component {
         alert('error' + JSON.stringify(er));
       });
   }
-
-
 }
 
 const styles = StyleSheet.create({
